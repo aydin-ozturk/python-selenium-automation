@@ -11,7 +11,7 @@ expected_header = "Sign in"
 actual_header = driver.find_element(By.XPATH, "//h1[contains(text(),'Sign in')]").text
 assert expected_header == actual_header, f'Expected {expected_header} but got {actual_header}'
 
-driver.find_element(By.ID, "ap_email")
+assert driver.find_element(By.ID, "ap_email"), 'Email field not shown'
 
 print("Test case passed")
 
