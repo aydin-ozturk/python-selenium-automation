@@ -9,3 +9,8 @@ def open_amazon(context):
 @when('Click on returns and orders')
 def click_on_returns(context):
     context.driver.find_element(By.XPATH, "//a[@href='/gp/css/order-history?ref_=nav_orders_first']").click()
+
+@when('Click on Cart')
+def click_on_cart(context):
+    context.driver.find_element(By.CSS_SELECTOR, "[class*='nav-cart-icon']").click()
+
