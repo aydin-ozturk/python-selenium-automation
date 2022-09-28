@@ -1,7 +1,7 @@
 # Created by brant at 9/28/2022
-Feature: Cart for logged out user
+Feature: Cart
 
-  Scenario: Logged out users see "Your Amazon Cart is empty" notification after clicking on cart
+  Scenario: Users see "Your Amazon Cart is empty" notification after clicking on cart without adding any product
     Given Open Amazon home page
     When Click on Cart
     Then Verify "Your Amazon Cart is empty" notification is present
