@@ -4,6 +4,7 @@ from behave import given, when, then
 @given('Open Amazon home page')
 def open_amazon(context):
     context.driver.get("https://www.amazon.com")
+    context.driver.refresh()
 
 
 @when('Click on returns and orders')
