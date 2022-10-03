@@ -6,11 +6,24 @@ Feature: Cart
     When Click on Cart
     Then Verify "Your Amazon Cart is empty" notification is present
 
+  Scenario Outline: Users can search for a product
+    Given Open Amazon home page
+    When Search for <product>
+    Then Search results for <search_result> is shown
+  Examples:
+    | product                                   |search_result                                |
+    | coffee                                    |"coffee"                                     |
+    | mug                                       |"mug"                                        |
+    | dress                                     |"dress"                                      |
+    | Black Panther Luxury Car Seat Cover Front |"Black Panther Luxury Car Seat Cover Front"  |
 
   Scenario: Users can search products and add them to the cart
     Given Open Amazon home page
-    When Search for "Black Panther Luxury Car Seat Cover Front"
-    When Select a product
-    When Add the product to the cart
-    When Click on Cart
-    Then Then verify cart has 1 item(s)
+    When Search for Black Panther Luxury Car Seat Cover Front
+    And Click on the first product
+    And Store product name
+    And Add the product to the cart
+    And Click on Cart
+    Then Verify cart has 1 item(s)
+    And Verify cart has correct product
+

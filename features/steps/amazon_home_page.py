@@ -21,9 +21,9 @@ def click_on_cart(context):
     context.driver.find_element(*CART).click()
 
 
-@when('Search for "{product}"')
+@when('Search for {product}')
 def searh_product(context, product):
     element=context.driver.find_element(*SEARCH_BAR)
     element.clear()
-    element.send_keys('Black Panther Luxury Car Seat Cover Front')
+    element.send_keys(product)
     context.driver.find_element(*SEARCH_BTN).click()
