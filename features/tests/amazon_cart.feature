@@ -27,3 +27,5 @@ Feature: Cart
     Then Verify cart has 1 item(s)
     And Verify cart has correct product
 
+
+
