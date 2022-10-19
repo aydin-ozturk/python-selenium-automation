@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from selenium.webdriver.support import expected_conditions as EC
@@ -36,3 +38,18 @@ def search_product(context, product):
 def click_sign_in_popup(context):
     e=context.driver.wait.until(EC.element_to_be_clickable(SIGN_IN), message='Sign in not clickable')
     e.click()
+
+
+@when('Wait for {sec} sec')
+def wait_sec(context, sec):
+    sleep(int(sec))
+
+
+@then('Verify sign in pop up button is clickable')
+def verify_signin_popup_clickable(context):
+    context.driver.wait.until(EC.element_to_be_clickable(SIGN_IN), message='Sign in pop up button not clickable')
+
+
+@then('Verify sign in pop up button disappears')
+def signin_popup_disappear(context):
+    context.driver.wait.until(EC.invisibility_of_element_located(SIGN_IN), message='Sign in pop up button did not disappear')
