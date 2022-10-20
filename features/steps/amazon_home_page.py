@@ -1,15 +1,14 @@
-from time import sleep
-
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 
 SEARCH_BAR=(By.ID, "twotabsearchtextbox")
 SEARCH_BTN=(By.ID, "nav-search-submit-button")
 CART=(By.ID, "nav-cart-count")
 RETURNS_ORDERS=(By.XPATH, "//a[@href='/gp/css/order-history?ref_=nav_orders_first']")
 SIGN_IN=(By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-button")
-
+BEST_SELLERS=(By.CSS_SELECTOR, "a[data-csa-c-content-id='nav_cs_bestsellers']")
 
 @given('Open Amazon home page')
 def open_amazon(context):
@@ -43,6 +42,11 @@ def click_sign_in_popup(context):
 @when('Wait for {sec} sec')
 def wait_sec(context, sec):
     sleep(int(sec))
+
+
+@when('Click on best sellers')
+def open_best_sellers(context):
+    context.driver.find_element(*BEST_SELLERS).click()
 
 
 @then('Verify sign in pop up button is clickable')
