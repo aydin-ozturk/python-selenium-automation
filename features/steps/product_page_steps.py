@@ -35,36 +35,3 @@ def verify_can_click_colors(context):
 
     assert expected_colors==actual_colors, \
         f'Expected colors {expected_colors} did not match actual {actual_colors}'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
