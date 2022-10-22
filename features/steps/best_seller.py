@@ -26,5 +26,4 @@ def verify_footer_links(context):
         header = context.driver.find_element(*HEADER).text
         footer_links = context.driver.find_elements(*FOOTER_LINKS)
         link_text = footer_links[n].text
-        n += 1
         assert link_text in header, f'Link text not in header'
