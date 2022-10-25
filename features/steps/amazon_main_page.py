@@ -12,8 +12,8 @@ BEST_SELLERS=(By.CSS_SELECTOR, "a[data-csa-c-content-id='nav_cs_bestsellers']")
 
 @given('Open Amazon home page')
 def open_amazon(context):
-    context.driver.get("https://www.amazon.com")
-    context.driver.refresh()
+    # context.driver.get("https://www.amazon.com")
+    context.app.main_page.open_main()
 
 
 @when('Click on returns and orders')
@@ -28,10 +28,12 @@ def click_on_cart(context):
 
 @when('Search for {product}')
 def search_product(context, product):
-    element=context.driver.find_element(*SEARCH_BAR)
-    element.clear()
-    element.send_keys(product)
-    context.driver.find_element(*SEARCH_BTN).click()
+    # element=context.driver.find_element(*SEARCH_BAR)
+    # element.clear()
+    # element.send_keys(product)
+    # context.driver.find_element(*SEARCH_BTN).click()
+
+    context.app.main_page.search_product(product)
 
 @when('Click on sign in pop up')
 def click_sign_in_popup(context):

@@ -6,10 +6,17 @@ Feature: Cart
     When Click on Cart
     Then Verify "Your Amazon Cart is empty" notification is present
 
+
+  Scenario: Users can search for coffee
+    Given Open Amazon home page
+    When Search for coffee
+    Then Search results for "coffee" are shown
+
+
   Scenario Outline: Users can search for a product
     Given Open Amazon home page
     When Search for <product>
-    Then Search results for <search_result> is shown
+    Then Search results for <search_result> are shown
   Examples:
     | product                                   |search_result                                |
     | coffee                                    |"coffee"                                     |
