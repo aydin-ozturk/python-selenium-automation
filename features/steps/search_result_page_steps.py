@@ -1,22 +1,18 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 
-PRODUCT_PRICE = (By.XPATH, "//div[@data-component-type='s-search-result']//a[.//span[@class='a-price-whole']]")
-SEARCH_RESULT = (By.XPATH, "//span[@data-component-type='s-result-info-bar']//span[@class='a-color-state a-text-bold']")
 ALL_PRODUCT_RESULTS = (By.CSS_SELECTOR, "[data-component-type='s-search-result']")
 PRODUCT_TITLE = (By.CSS_SELECTOR, "h2 span.a-text-normal")
 PRODUCT_IMG = (By.CSS_SELECTOR, ".s-image[data-image-latency='s-product-image']")
 
 
 @when('Click on the first product')
-def select_product(context):
-    context.driver.find_element(*PRODUCT_PRICE).click()
+def select_first_product(context):
+    context.app.search_results_page.select_first_product()
 
 
 @then('Search results for {expected_result} are shown')
 def verify_search_results(context, expected_result):
-    # actual_result = context.driver.find_element(*SEARCH_RESULT).text
-    # assert actual_result == search_result, f"Expected {search_result} but got {actual_result}"
     context.app.search_results_page.verify_search_results(expected_result)
 
 @then('Verify every product has a name and image')
