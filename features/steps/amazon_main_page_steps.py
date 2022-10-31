@@ -21,6 +21,11 @@ def search_product(context, product):
     context.app.main_page.search_product(product)
 
 
+# @when('Click on  {element}')
+# def click_on_element(context, element):
+#     context.app.main_page.click_on_element(element)
+
+
 @when('Click on sign in pop up')
 def click_sign_in_popup(context):
     context.app.main_page.click_sign_in_popup()
@@ -29,6 +34,11 @@ def click_sign_in_popup(context):
 @when('Wait for {sec} sec')
 def wait_sec(context, sec):
     context.app.main_page.wait_sec(sec)
+
+
+@when("Select department by value {value}")
+def select_department(context, value):
+    context.app.main_page.select_department(value)
 
 
 @then('Verify sign in pop up button is clickable')

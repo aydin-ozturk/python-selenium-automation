@@ -16,3 +16,16 @@ Feature: Product search
     | mug                                       |"mug"                                        |
     | dress                                     |"dress"                                      |
     | Black Panther Luxury Car Seat Cover Front |"Black Panther Luxury Car Seat Cover Front"  |
+
+  Scenario Outline: Users can search products in a specific department
+    Given Open Amazon home page
+    When Select department by value <value>
+    And Search for <product>
+    Then Verify <department> department is selected
+  Examples:
+    |value        |product        |department       |
+    |pets         |aquarium       |pet-supplies     |
+    |electronics  |camera         |electronics      |
+    |computers    |dell           |pc               |
+
+

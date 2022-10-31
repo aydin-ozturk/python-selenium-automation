@@ -14,3 +14,8 @@ def verify_search_results(context, expected_result):
 @then('Verify every product has a name and image')
 def verify_product_name_img(context):
     context.app.search_results_page.verify_product_name_img()
+
+
+@then("Verify {department} department is selected")
+def verify_department(context, department):
+    context.app.search_results_page.verify_department(department)
