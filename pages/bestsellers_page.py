@@ -10,7 +10,7 @@ class BestsellersPage(Page):
         self.open_url("gp/bestsellers")
 
     def verify_footer_links(self):
-        footer_links = self.driver.find_elements(*self.FOOTER_LINKS)
+        footer_links = self.find_elements(*self.FOOTER_LINKS)
         for n in range(len(footer_links)):
             footer_links[n].click()
             header = self.driver.find_element(*self.HEADER).text

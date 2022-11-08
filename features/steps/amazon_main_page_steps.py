@@ -21,11 +21,6 @@ def search_product(context, product):
     context.app.main_page.search_product(product)
 
 
-# @when('Click on  {element}')
-# def click_on_element(context, element):
-#     context.app.main_page.click_on_element(element)
-
-
 @when('Click on sign in pop up')
 def click_sign_in_popup(context):
     context.app.main_page.click_sign_in_popup()
@@ -39,6 +34,16 @@ def wait_sec(context, sec):
 @when("Select department by value {value}")
 def select_department(context, value):
     context.app.main_page.select_department(value)
+
+
+@when("Hover over language options")
+def hover_over_language(context):
+    context.app.main_page.hover_over_language()
+
+
+@then("Verify Spanish option is present")
+def verify_spanish_language_present(context):
+    context.app.main_page.verify_spanish_language_present()
 
 
 @then('Verify sign in pop up button is clickable')

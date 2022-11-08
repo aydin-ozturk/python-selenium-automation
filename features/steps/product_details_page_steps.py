@@ -15,6 +15,7 @@ def add_product(context):
 def store_product_name(context):
     context.app.product_details_page.store_product_name()
 
+
 @when('Hover over New Arrivals')
 def hover_over_new_arrivals(context):
     context.app.product_details_page.hover_over_new_arrivals()

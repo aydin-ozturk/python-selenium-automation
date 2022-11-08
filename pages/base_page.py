@@ -29,7 +29,7 @@ class Page:
         e.send_keys(text)
         print(f'Inputting text: {text}')
 
-    def wait_for_element_click(self, *locator):
+    def wait_for_element_and_click(self, *locator):
         e = self.wait.until(EC.element_to_be_clickable(locator))
         e.click()
 
